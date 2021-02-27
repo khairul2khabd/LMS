@@ -15,11 +15,11 @@ class CreateCourseTopicsTable extends Migration
     {
         Schema::create('course_topics', function (Blueprint $table) {
             $table->id();
-            $table->text('topic_heading_one');
+            $table->longText('topic_heading_one');
             $table->longText('topic_description_one');
-            $table->text('topic_heading_two');
+            $table->longText('topic_heading_two');
             $table->longText('topic_description_two');
-            $table->text('topic_heading_three');
+            $table->longText('topic_heading_three');
             $table->longText('topic_description_three');
             $table->text('topic_heading_four');
             $table->longText('topic_description_four');

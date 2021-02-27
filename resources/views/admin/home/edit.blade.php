@@ -1,15 +1,76 @@
 @extends('layouts.admin_master')
 
-@section('Course_section')
+@section('course_page')
     active show-sub
 @endsection
-@section('course_text')
+@section('home_text')
     active
 @endsection
 
 @section('admin_content')
+  <!-- Page Content  -->
+  <div id="content-page" class="content-page">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-sm-12 col-lg-12">
+             <div class="iq-card">
+                <div class="iq-card-header d-flex justify-content-between">
+                   <div class="iq-header-title">
+                      <h4 class="card-title">COURSE  TEXT TABLE</h4>
+                   </div>
+                </div>
+             </div>
+             <div class="iq-card">
+                <div class="iq-card-body">
+                    <form action="{{ route('hometext.update') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $courseEdit->id }}">
+                     <div class="row">
 
-    <!-- ########## START: MAIN PANEL ########## -->
+
+                     <div class="col-lg-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-control-label">Course Title: <span class="tx-danger">*</span></label>
+                            <textarea name="course_title" id="" rows="2" cols="20" class="form-control">{{ $courseEdit->course_title }}</textarea>
+                          </div>
+                           @error('course_title')
+                             <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
+                     </div>
+                     <div class="col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label class="form-control-label">About Course: <span class="tx-danger">*</span></label>
+                                <textarea name="about_course" rows="2" cols="20" class="form-control">{{ $courseEdit->about_course }}</textarea>
+                          </div>
+                           @error('about_course')
+                           <strong class="text-danger">{{ $message }}</strong>
+                          @enderror
+                     </div>
+                     <div class="col-lg-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-control-label">About Description: <span class="tx-danger">*</span></label>
+                            <textarea name="about_description" rows="5" cols="20" class="form-control">{{ $courseEdit->about_description }}</textarea>
+                          </div>
+                         @error('about_description')
+                         <strong class="text-danger">{{ $message }}</strong>
+                        @enderror
+                       </div>
+                     </div>
+                     <div class="form-layout-footer">
+                        <button type="submit" class="btn btn-success mg-r-5" style="font-size: 20px">UPDATE DATA</button>
+                    </div><!-- form-layout-footer -->
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+</div>
+
+
+
+    {{-- <!-- ########## START: MAIN PANEL ########## -->
     <div class="sl-mainpanel">
         <nav class="breadcrumb sl-breadcrumb">
           <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
@@ -60,5 +121,5 @@
                 </div><!-- form-layout-footer -->
             </form>
             </div><!-- form-layout -->
-        </div><!-- card -->
+        </div><!-- card --> --}}
 @endsection

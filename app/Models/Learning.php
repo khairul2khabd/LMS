@@ -20,5 +20,6 @@ class Learning extends Model
         'title_6',
         'title_7',
         'title_8',
+        'status',
     ];
 }

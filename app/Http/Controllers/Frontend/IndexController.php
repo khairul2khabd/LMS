@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index(){
+
         $hometext = HomeText::orderBy('id','DESC')->get();
         return view('frontend.index', compact('hometext'));
     }

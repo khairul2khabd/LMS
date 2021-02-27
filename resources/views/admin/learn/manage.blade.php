@@ -1,6 +1,6 @@
 @extends('layouts.admin_master')
 
-@section('Course_section')
+@section('course_page')
     active show-sub
 @endsection
 @section('course_learn')
@@ -8,7 +8,71 @@
 @endsection
 
 @section('admin_content')
-<div class="sl-mainpanel">
+<div class="wrapper">
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+           <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                 <div class="iq-card">
+                    <div class="iq-card-header d-flex justify-content-between">
+                       <div class="iq-header-title">
+                          <h4 class="card-title">HOME TEXT MANAGE</h4>
+                       </div>
+                    </div>
+                    <div class="iq-card-body">
+                       <table class="table">
+                          <thead class="thead-dark">
+                             <tr>
+                                <th scope="col">Sl</th>
+                                <th scope="col">Heading Title</th>
+                                <th scope="col">Title__One</th>
+                                <th scope="col">Title__Two</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                              @php
+                                  $sl = 1
+                              @endphp
+                             @foreach ($courseLearn as $item)
+                             <tr>
+                                 <th scope="row">{{ $sl++ }}</th>
+                                <td>{{ $item->heading_title }}</td>
+                                <td>{{ $item->title_1 }} Tk</td>
+                                <td>{{ $item->title_2 }}</td>
+                                <td>
+                                    @if ($item->status == 1)
+                                    <span class="badge badge-success" style="font-size:17px">Active</span>
+                                    @else
+                                    <span class="badge badge-danger" style="font-size:17px">Inactive</span>
+                                    @endif
+                                </td>
+                                <td>
+                                  <a href="{{ url('admin/learn/edit/'.$item->id) }}" class="btn btn-info btn-sm" title="edit data"><i class="fa fa-pencil"></i></a>
+
+                                  <a href="{{url('admin/learn/delete/'.$item->id)}}" class="btn btn-danger btn-sm" id="delete" title="delet data" id="delete"><i class="fa fa-trash"></i></a>
+
+                                @if ($item->status == 1)
+                                <a href="{{ url('admin/learn/inactive/'.$item->id) }}" class="btn btn-success btn-sm" title="inactive"><i class="fa fa-arrow-down"></i></a>
+                                @else
+                                <a href="{{ url('admin/learn/active/'.$item->id) }}" class="btn btn-danger btn-sm" title="active"><i class="fa fa-arrow-up"></i></a>
+                              @endif
+                                </td>
+                              </tr>
+                             @endforeach
+                          </tbody>
+                       </table>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     </div>
+
+
+{{-- <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
       <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
       <span class="breadcrumb-item active">COURSE LEARN</span>
@@ -57,7 +121,7 @@
 
                             <a href="{{url('admin/learn/delete/'.$item->id)}}" class="btn btn-danger btn-sm" id="delete" title="delet data" onclick="return confirm('Your sure Delete?')"><i class="fa fa-trash"></i></a>
 
-                          @if ($item->status ==1)
+                          @if ($item->status == 1)
                           <a href="{{ url('admin/learn/inactive/'.$item->id) }}" class="btn btn-danger btn-sm" title="inactive"><i class="fa fa-arrow-down"></i></a>
                           @else
                           <a href="{{ url('admin/learn/active/'.$item->id) }}" class="btn btn-success btn-sm" title="active"><i class="fa fa-arrow-up"></i></a>
@@ -73,5 +137,5 @@
             </div>
           </div>
   </div>
-</div>
+</div> --}}
 @endsection

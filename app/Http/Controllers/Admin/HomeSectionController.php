@@ -35,7 +35,12 @@ class HomeSectionController extends Controller
             'status' =>1,
             'created_at' => Carbon::now(),
         ]);
-        return redirect()->back()->with('success','Course Text Successfully Added');
+
+        $notification=array(
+            'message'=>'Added Success',
+            'alert-type'=>'success'
+             );
+        return redirect()->route('text.manage')->with($notification);
      }
      // Text Manage
      public function TextManage(){
@@ -57,22 +62,38 @@ class HomeSectionController extends Controller
             'status' =>1,
             'updated_at' => Carbon::now(),
         ]);
-        return redirect()->route('text.manage')->with('update', 'Updated Successfully');
+        $notification=array(
+            'message'=>'Updated Successfully',
+            'alert-type'=>'success'
+             );
+        return redirect()->route('text.manage')->with($notification);
      }
      //Course Delete
      public function CourseDelete($id){
         HomeText::findOrFail($id)->delete();
-        return redirect()->back()->with('update', 'Delete Success');
+        $notification=array(
+            'message'=>'Delete Successfully',
+            'alert-type'=>'error'
+             );
+        return redirect()->back()->with($notification);
      }
      // Course Inactive
      public function CourseInactive($id){
          HomeText::findOrFail($id)->update(['status'=> 0]);
-         return redirect()->back()->with('update', 'Course Inactive');
+         $notification=array(
+            'message'=>'Inactive Successfully',
+            'alert-type'=>'error'
+             );
+        return redirect()->back()->with($notification);
      }
      // Course Inactive
      public function CourseActive($id){
         HomeText::findOrFail($id)->update(['status'=> 1]);
-        return redirect()->back()->with('update', 'Course activated');
+        $notification=array(
+            'message'=>'Activated Successfully',
+            'alert-type'=>'success'
+             );
+        return redirect()->back()->with($notification);
     }
     /////////////////////////////// Course Learn Route Are Here//////////////////////
     public function CourseLearn(){
@@ -105,7 +126,11 @@ class HomeSectionController extends Controller
             'status' => 1,
             'created_at' => Carbon::now(),
         ]);
-        return redirect()->back()->with('success', 'Successfully Added');
+        $notification=array(
+            'message'=>'added Successfully',
+            'alert-type'=>'success'
+             );
+        return redirect()->route('manage.learn')->with($notification);
     }
     /// Course Manage Learn
     public function ManageLearn(){
@@ -136,23 +161,41 @@ class HomeSectionController extends Controller
             'status' => 1,
             'updated_at' => Carbon::now(),
         ]);
-        return redirect()->route('manage.learn')->with('success', 'Updated Successfully');
+        $notification=array(
+            'message'=>'Update Successfully',
+            'alert-type'=>'success'
+             );
+        return redirect()->route('manage.learn')->with($notification);
      }
      //Course Delete
      public function LearnDelete($id){
         Learning::findOrFail($id)->delete();
-        return redirect()->back()->with('update', 'Delete Success');
+        $notification=array(
+            'message'=>'Delete Successfully',
+            'alert-type'=>'error'
+             );
+        return redirect()->back()->with($notification);
      }
      // Course Inactive
      public function LearnInactive($id){
 
-         Learning::findOrFail($id)->update(['status'=> 0]);
-        return redirect()->back()->with('e', 'Learn Inactive');
+        Learning::findOrFail($id)->update(['status'=> 0]);
+
+        $notification=array(
+            'message'=>'Inactive Successfully',
+            'alert-type'=>'error'
+             );
+        return redirect()->back()->with($notification);
     }
     // Course Inactive
     public function LearnActive($id){
+
         Learning::findOrFail($id)->update(['status'=> 1]);
-       return redirect()->back()->with('e', 'Learn activated');
+        $notification=array(
+            'message'=>'Activated Successfully',
+            'alert-type'=>'success'
+             );
+        return redirect()->back()->with($notification);
    }
    ////////////////////////////// Topic Course Start/////////////////////////
    public function TopicCourse(){
@@ -161,21 +204,20 @@ class HomeSectionController extends Controller
    //Topic Store
    public function TopicStore(Request $request){
 
-    // $request->validate([
-    //     'topic_heading_one' => 'required',
-    //     'topic_description_one' => 'required',
-    //     'topic_heading_two' => 'required',
-    //     'topic_description_two' => 'required',
-    //     'topic_heading_three' => 'required',
-    //     'topic_description_three' => 'required',
-    //     'topic_heading_four' => 'required',
-    //     'topic_description_four' => 'required',
-    //     'topic_heading_five' => 'required',
-    //     'topic_description_five' => 'required',
-    //     'topic_heading_six' => 'required',
-    //     'topic_description_six' => 'required'
-    // ]);
-
+    $request->validate([
+        'topic_heading_one' => 'required',
+        'topic_description_one' => 'required',
+        'topic_heading_two' => 'required',
+        'topic_description_two' => 'required',
+        'topic_heading_three' => 'required',
+        'topic_description_three' => 'required',
+        'topic_heading_four' => 'required',
+        'topic_description_four' => 'required',
+        'topic_heading_five' => 'required',
+        'topic_description_five' => 'required',
+        'topic_heading_six' => 'required',
+        'topic_description_six' => 'required'
+    ]);
         CourseTopic::insert([
         'topic_heading_one' =>$request->topic_heading_one,
         'topic_description_one' =>$request->topic_description_one,
@@ -192,8 +234,11 @@ class HomeSectionController extends Controller
         'status' =>1,
         'created_at' => Carbon::now(),
     ]);
-
-    return redirect()->back()->with('success', 'Added Successfully');
+    $notification=array(
+        'message'=>'Added Successfully',
+        'alert-type'=>'success'
+         );
+    return redirect()->route('manage.topic')->with($notification);
    }
    // Topic Manage
    public function ManageTopic(){
@@ -210,7 +255,7 @@ class HomeSectionController extends Controller
    // Topic Update
    public function TopicUpdate(Request $request){
 
-    $id=$request->id;
+    $id = $request->id;
 
     CourseTopic::findOrFail($id)->update([
         'topic_heading_one' =>$request->topic_heading_one,
@@ -228,6 +273,38 @@ class HomeSectionController extends Controller
         'status' =>1,
         'updated_at' => Carbon::now(),
     ]);
-    return redirect()->back()->with('success', 'Update Success');
+    $notification=array(
+        'message'=>'Added Successfully',
+        'alert-type'=>'success'
+         );
+    return redirect()->route('manage.topic')->with($notification);
    }
+   // Topic Delete
+   public function TopicDelete($id){
+       CourseTopic::findOrFail($id)->delete();
+       $notification=array(
+        'message'=>'Added Successfully',
+        'alert-type'=>'error'
+         );
+    return redirect()->back()->with($notification);
+   }
+   //Topic Inactive
+   public function TopicInactive($id){
+       CourseTopic::findOrFail($id)->update(['status' => 0 ]);
+
+       $notification=array(
+            'message'=>'Inactive Successfully',
+            'alert-type'=>'error'
+             );
+        return redirect()->back()->with($notification);
+   }
+   //Topic Inactive
+   public function TopicActive($id){
+    CourseTopic::findOrFail($id)->update(['status' => 1 ]);
+     $notification=array(
+        'message'=>'Activated Successfully',
+        'alert-type'=>'success'
+         );
+    return redirect()->back()->with($notification);
+}
 }
