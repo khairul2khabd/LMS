@@ -20,7 +20,7 @@ class HomeSectionController extends Controller
         return view('admin.home.course_text');
     }
     //HOme text Store
-    public function HometextStore(request $request){
+    public function create(request $request){
         $request->validate([
             'course_title' => 'required',
             'about_course' => 'required',

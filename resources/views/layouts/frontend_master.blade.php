@@ -165,6 +165,7 @@
                             <ul id="menu-design" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li><a href="{{ route('register') }}">Register</a></li>
                                 <li><a href="{{ route('login.admin') }}">Sign in</a></li>
+                                <li><a href="{{ route('student.registration') }}">Student Registration</a></li>
                             </ul>
                         </li>
                     </ul>

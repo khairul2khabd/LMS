@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,8 @@ Route::post('admin/topic/update', [HomeSectionController::class, 'TopicUpdate'])
 
 //////////////// Course view //////////////////////
 Route::get('course', [CourseController::class, '_courseView'])->name('course.list');
+
+
+/////////////// Student Registration  ///////////////
+Route::get('student/registration', [StudentController::class, 'index'])->name('student.registration');
+Route::post('student/student-create', [StudentController::class, 'create'])->name('student.create');
