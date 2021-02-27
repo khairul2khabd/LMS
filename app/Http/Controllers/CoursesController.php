@@ -18,6 +18,11 @@ class CoursesController extends Controller
         $this->middleware('auth:admin');
     }
 
+    public function index()
+    {
+        return view('admin.course.courses');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,10 +40,10 @@ class CoursesController extends Controller
             'coursef_end_date' => 'required',
         ]);
 
-        $image =$request->file('image');
-        $name_gen=uniqid().'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(166,110)->save('public/frontend/images/course/'.$name_gen);
-        $save_url='public/frontend/images/course/'.$name_gen;
+        $image = $request->file('image');
+        $name_gen = uniqid() . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(166, 110)->save('public/frontend/images/course/' . $name_gen);
+        $save_url = 'public/frontend/images/course/' . $name_gen;
 
         Course::insert([
             'image' => $save_url,

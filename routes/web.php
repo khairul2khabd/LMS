@@ -33,8 +33,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin/home', [AdminController::class, 'index']);
 Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login.admin');
 Route::post('admin', [LoginController::class, 'login']);
-////////////////////////Home Section//////////////////////////////////////////////////////////////
-Route::get('admin/home-section', [HomeSectionController::class, 'HomeText'])->name('home.text');
+
+////////////////////////Admin courses//////////////////////////////////////////////////////////////
+Route::get('admin/createcourse', [CoursesController::class, 'index'])->name('course.create');
+
+
+
 Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 Route::get('admin/text-manage', [HomeSectionController::class, 'TextManage'])->name('text.manage');
 Route::get('admin/course-text/edit/{id}', [HomeSectionController::class, 'CourseEdit']);
