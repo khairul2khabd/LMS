@@ -108,7 +108,7 @@
                         </li>
                         <li>
 
-                            <a href="#ui-elements" onclick="window.location='{{ route("course.list") }}'" class="iq-waves-effect collapsed" data-toggle="collapse"
+                            <a href="#ui-elements" onclick="window.location='{{ route("course.view") }}'" class="iq-waves-effect collapsed" data-toggle="collapse"
                                aria-expanded="false">
                                 <span>Courses</span></a>
                         </li>

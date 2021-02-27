@@ -1,5 +1,5 @@
  <!-- ########## START: LEFT PANEL ########## -->
- <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> starlight</a></div>
+ <div class="sl-logo"><a href="">Admin Panel</a></div>
  <div class="sl-sideleft">
    <div class="sl-sideleft-menu">
      <a href="{{ url('/') }}" class="sl-menu-link" target="_blank">
@@ -28,9 +28,10 @@
        </div><!-- menu-item -->
      </a><!-- sl-menu-link -->
      <ul class="sl-menu-sub nav flex-column">
-       <li class="nav-item"><a href="{{ route('home.text') }}" class="nav-link @yield('course_text')">COURSE TEXT</a></li>
-       <li class="nav-item"><a href="{{ route('course.learn') }}" class="nav-link @yield('course_learn')">COURSE LEARN</a></li>
-       <li class="nav-item"><a href="{{ route('topic.course') }}" class="nav-link @yield('topic_course')">TOPIC COURSE</a></li>
+<!--       <li class="nav-item"><a href="{{ route('home.text') }}" class="nav-link @yield('course_text')">COURSE TEXT</a></li>-->
+<!--       <li class="nav-item"><a href="{{ route('course.learn') }}" class="nav-link @yield('course_learn')">COURSE LEARN</a></li>-->
+<!--       <li class="nav-item"><a href="{{ route('topic.course') }}" class="nav-link @yield('topic_course')">TOPIC COURSE</a></li>-->
+         <li class="nav-item"><a href="{{ route('home.text') }}" class="nav-link @yield('course_text')">CREATE COURSE</a></li>
      </ul>
    </div><!-- sl-sideleft-menu -->
    <br>

@@ -36,7 +36,6 @@
                 </a>
             @endif
                 <button type="button" onclick="window.location='{{ url("/") }}'" class="btn btn-success btn-sm">Home</button>
-<!--                <button type="button" onclick="window.location='{{ route("course.list") }}'">Button</button>-->
         </div>
         </div><!-- login-wrapper -->
     </form>

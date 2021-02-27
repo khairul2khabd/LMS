@@ -17,8 +17,7 @@
           <span class="breadcrumb-item active">HOME ADD</span>
         </nav>
         <div class="sl-pagebody">
-          <div class="sl-page-title">
-          </div><!-- sl-page-title -->
+
 
           <div class="card pd-20 pd-sm-40">
             <h6 class="card-body-title"> Course text Table</h6>
