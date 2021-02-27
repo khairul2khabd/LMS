@@ -6,24 +6,6 @@
 $home = App\Models\HomeText::latest()->get();
 @endphp --}}
 
-<!-- About Section Start -->
-<section class="about" id="about">
-    <div class="max-width">
-        <h2 class="title">about me</h2>
-        <div class="about-content">
-            <div class="column left">
-                <img class="wow fadeInLeftBig fisrt-word" data-wow-duration="2s" data-wow-delay="0s"" src="{{ asset('public/frontend') }}/img/banner.png" alt="">
-            </div> <!-- column left -->
-            <div class="column right wow fadeInRightBig fisrt-word" data-wow-duration="2s" data-wow-delay="0s"">
-            <div class="text">I'm Mazharul and I'm a <span class="tying1"></span></div>
-            <p>I'm a professional web developer and expert in PHP Laravel framework. I have experience of years in web development, especially PHP and Laravel. I am a full stack developer and know both frontend and backend. Also, I have done projects for the industry. If you are facing any issue with Laravel or want to add new features Or want to develop a new web site then you are on the right place. I am here for you.</p>
-            <a class="wow fadeInUpBig fisrt-word" data-wow-duration="2s" data-wow-delay="0s"" href="#">Download Cv</a>
-        </div> <!-- column right -->
-    </div> <!-- home content -->
-    </div><!-- max-width -->
-</section> <!-- About-section -->
-<!-- About Section End -->
-
 <!-- Service Section Start -->
 <section class="services" id="service">
     <div class="max-width">

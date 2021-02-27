@@ -80,7 +80,7 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu d-flex">
                         <li class="active">
-                            <a <a href="{{ url('/') }}" class="iq-waves-effect collapsed" data-toggle="collapse"
+                            <a href="#ui-elements" onclick="window.location='{{ url("/") }}'"  class="iq-waves-effect collapsed" data-toggle="collapse"
                                   aria-expanded="false"><span>Home</span> </a>
                         </li>
                         <li>
@@ -107,7 +107,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="{{ route('course.list') }} " class="iq-waves-effect collapsed" data-toggle="collapse"
+
+                            <a href="#ui-elements" onclick="window.location='{{ route("course.list") }}'" class="iq-waves-effect collapsed" data-toggle="collapse"
                                aria-expanded="false">
                                 <span>Courses</span></a>
                         </li>

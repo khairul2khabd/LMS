@@ -30,11 +30,13 @@
         <div class="form-group">
             <button type="submit" class="btn btn-info btn-block">Sign In</button>
             @if (Route::has('password.request'))
-                {{-- <a class="btn btn-link" href="{{ route('password.request') }}"> --}}
+<!--                 <a class="btn btn-link" href="{{ route('password.request') }}"> -->
                 <a class="btn btn-link" href="#">
                     {{ __('Forgot Your Password?') }}
                 </a>
             @endif
+                <button type="button" onclick="window.location='{{ url("/") }}'" class="btn btn-success btn-sm">Home</button>
+<!--                <button type="button" onclick="window.location='{{ route("course.list") }}'">Button</button>-->
         </div>
         </div><!-- login-wrapper -->
     </form>
