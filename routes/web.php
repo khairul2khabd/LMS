@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Admin\HomeSectionController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 ///////////////Admin Route are Here /////////////////////////
 Route::get('admin/home', [AdminController::class, 'index']);
-Route::get('admin', [LoginController::class, 'showLoginForm'])->name('admin');
+Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login.admin');
 Route::post('admin', [LoginController::class, 'login']);
 ////////////////////////Home Section//////////////////////////////////////////////////////////////
 Route::get('admin/home-section', [HomeSectionController::class, 'HomeText'])->name('home.text');
@@ -55,3 +56,5 @@ Route::get('admin/topic-manage', [HomeSectionController::class, 'ManageTopic'])-
 Route::get('admin/topic/edit/{id}', [HomeSectionController::class, 'TopicEdit']);
 Route::post('admin/topic/update', [HomeSectionController::class, 'TopicUpdate'])->name('topic.update');
 
+//////////////// Course view //////////////////////
+Route::get('course', [CourseController::class, '_courseView'])->name('course.list');

@@ -65,10 +65,10 @@
 <div class="wrapper" style="background:">
     <!-- TOP Nav Bar -->
     <div class="iq-top-navbar">
-        <div class="iq-navbar-custom d-flex align-items-center justify-content-between" >
+        <div class="iq-navbar-custom d-flex align-items-center justify-content-between">
             <div class="iq-sidebar-logo" style="margin-left:120px;">
                 <div class="top-logo" style="width: 80%">
-                   <br>
+                    <br>
                     <a href="{{ url('/') }}" class="logo">
                         <img src="{{ asset('public/frontend') }}/images/idea-logo.png" class="img-fluid" alt="">
                     </a>
@@ -80,17 +80,23 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu d-flex">
                         <li class="active">
-                            <a  <a href="{{ url('/') }}" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Home</span> </a>
+                            <a <a href="{{ url('/') }}" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                  aria-expanded="false"><span>Home</span> </a>
                         </li>
                         <li>
-                            <a href="#menu-level" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"> <span>About</span><i class="ri-arrow-down-s-line iq-arrow-right"></i></a>
+                            <a href="#menu-level" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"> <span>About</span><i
+                                    class="ri-arrow-down-s-line iq-arrow-right"></i></a>
                             <ul id="menu-level" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li>
-                                    <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Email</span> </a>
+                                    <a href="#mailbox" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                       aria-expanded="false"><span>Email</span> </a>
                                 </li>
                                 <li><a href="calendar.html">Calendar</a></li>
                                 <li>
-                                    <a href="#user-info" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                                    <a href="#user-info" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                       aria-expanded="false"><span>User</span><i
+                                            class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                     <ul id="user-info" class="iq-submenu iq-submenu-data collapse">
                                         <li><a href="profile.html">User Profile</a></li>
                                         <li><a href="profile-edit.html">User Edit</a></li>
@@ -101,51 +107,63 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Courses</span></a>
+                            <a href="{{ route('course.list') }} " class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false">
+                                <span>Courses</span></a>
                         </li>
 
                         <li>
-                            <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>News</span></a>
+                            <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><span>News</span></a>
                         </li>
 
                         <li>
-                            <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Gallery</span></a>
+                            <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><span>Gallery</span></a>
                         </li>
 
                         <li>
-                            <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>F A Q</span></a>
+                            <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><span>F A Q</span></a>
                         </li>
 
                         <li>
-                            <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Contact</span></a>
+                            <a href="#ui-elements" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><span>Contact</span></a>
                         </li>
 
                         <li>
-                            <a href="#Pages" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-record-circle-line"></i><span>MOODLE</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                            <a href="#Pages" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><i class="ri-record-circle-line"></i><span>MOODLE</span><i
+                                    class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                             <ul id="Pages" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li>
-                                    <a href="#charts" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Charts</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                                    <a href="#charts" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                       aria-expanded="false"><span>Charts</span><i
+                                            class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                     <ul id="charts" class="iq-submenu iq-submenu-data collapse">
                                         <li><a href="chart-morris.html">Morris Chart</a></li>
-                                        <li><a href="chart-apex.html">Apex Chart</a></li>
                                     </ul>
                                 </li>
 
                                 <li>
-                                    <a href="#extra-pages" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><span>Extra Pages</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                                    <ul id="extra-pages" class="iq-submenu iq-submenu-data collapse" data-parent="#iq-sidebar-toggle">
+                                    <a href="#extra-pages" class="iq-waves-effect collapsed" data-toggle="collapse"
+                                       aria-expanded="false"><span>Extra Pages</span><i
+                                            class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                                    <ul id="extra-pages" class="iq-submenu iq-submenu-data collapse"
+                                        data-parent="#iq-sidebar-toggle">
                                         <li><a href="pages-timeline.html">Timeline</a></li>
-                                        <li><a href="pages-invoice.html">Invoice</a></li>
-                                        <li><a href="blank-page.html">Blank Page</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#menu-design" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-menu-3-line"></i><span>Account</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                            <a href="#menu-design" class="iq-waves-effect collapsed" data-toggle="collapse"
+                               aria-expanded="false"><i class="ri-menu-3-line"></i><span>Account</span><i
+                                    class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                             <ul id="menu-design" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                 <li><a href="{{ route('register') }}">Register</a></li>
-                                <li><a href="{{ route('admin') }}">Sign in</a></li>
+                                <li><a href="{{ route('login.admin') }}">Sign in</a></li>
                             </ul>
                         </li>
                     </ul>
