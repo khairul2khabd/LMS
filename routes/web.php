@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 ///////////////Admin Route are Here /////////////////////////
 Route::get('admin/home', [AdminController::class, 'index']);
-Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login.admin');
+Route::get('admin', [LoginController::class, 'showLoginForm'])->name('admin');
 Route::post('admin', [LoginController::class, 'login']);
 ////////////////////////Home Section//////////////////////////////////////////////////////////////
 Route::get('admin/home-section', [HomeSectionController::class, 'HomeText'])->name('home.text');
