@@ -27,7 +27,7 @@ Route::get('/',[IndexController::class,'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'logout'])->name('user.logout');
+ Route::get('/home', [App\Http\Controllers\HomeController::class, 'logout'])->name('user.logout');
 
 ///////////////Admin Route are Here /////////////////////////
 Route::get('admin/home', [AdminController::class, 'index']);
@@ -43,6 +43,7 @@ Route::post('admin/course-update',[CoursesController::class,'update'])->name('co
 
 //////////////// Course view public //////////////////////
 Route::get('courseview', [RoutesController::class, '_courseView'])->name('course.view'); // public view
+Route::get('course/details/{id}',[RoutesController::class,'_courseDetails']);
 
 Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 

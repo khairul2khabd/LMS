@@ -34,6 +34,7 @@ $home = App\Models\HomeText::latest()->get();
         @foreach($items as $item)
         <div class="col-sm-3">
             <div class="card iq-mb-3 shadow-lg">
+                <a href="{{ url('course/details/'.$item->id) }}" class="img-fluid"alt="">
                 <img src="{{ asset($item->image) }}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h4 class="card-title">{{$item->course_title}}</h4>
