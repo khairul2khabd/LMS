@@ -9,6 +9,12 @@ active
 
 @section('admin_content')
 
+<style>
+    img {
+        border-radius: 50%;
+    }
+</style>
+
 <div class="sl-mainpanel select-menu-text">
     <nav class="breadcrumb sl-breadcrumb select-menu-text">
         <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
@@ -42,7 +48,9 @@ active
                                     @foreach ($course as $course)
                                     <tr>
                                         <th scope="row">{{ $sl++ }}</th>
-                                        <td><img src="{{ asset($course->image) }}" width="80px" alt=""></td>
+                                        <td><img src="{{ asset($course->image) }}" width="40" height="40" class="img-circle" alt="image">
+
+                                        </td>
                                         <td>{{ $course->about_course }}</td>
                                         <td>{{ $course->course_title }}</td>
                                         <td>

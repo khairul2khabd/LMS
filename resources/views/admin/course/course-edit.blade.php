@@ -42,8 +42,11 @@ active
             </div>
             @endif
             <div class="form-layout">
-                <form action="{{ route('course.create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('course.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <input type="hidden" name="id" value="{{ $course_edit->id }}">
+                    <input type="hidden" name="old_img" value="{{ $course_edit->image }}">
 
                     <div class="row">
 
@@ -51,7 +54,7 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Course Title: <span class="tx-danger">*</span></label>
                                 <input name="course_title" type="text" class="form-control" placeholder="Course Title"
-                                       value="{{ old('course_title') }}"></input>
+                                       value="{{ $course_edit->course_title }}"></input>
                             </div>
                             @error('course_title')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -62,7 +65,7 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Course Thumbnail Image : <span
                                         class="tx-danger">*</span></label>
-                                <input type="file" class="form-control" name="image" value="{{ old('image') }}">
+                                <input type="file" class="form-control" name="image" value="{{ $course_edit->image }}">
                             </div>
                             @error('image')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -76,8 +79,7 @@ active
                                 <label class="form-control-label">Course Description: <span
                                         class="tx-danger">*</span></label>
                                 <textarea name="about_course" cols="10" class="form-control"
-                                          placeholder="About Description"
-                                          value="{{ old('about_course') }}"></textarea>
+                                          placeholder="About Description" >{{ $course_edit->about_course }}</textarea>
                             </div>
                             @error('about_course')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -90,21 +92,21 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Course Hour: </label>
                                 <input type="text" class="form-control" name="course_duration_hour"
-                                       value="{{ old('course_duration_hour') }}" placeholder="HH">
+                                       value="{{ $course_edit->course_duration_hour }}" placeholder="HH">
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class=" form-group">
                                 <label class="form-control-label">Minute:</label>
                                 <input type="text" class="form-control" name="course_duration_minute"
-                                       value="{{ old('course_duration_minute') }}" placeholder="MM">
+                                       value="{{ $course_edit->course_duration_minute }}" placeholder="MM">
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label class="form-control-label">Second</label>
                                 <input type="text" class="form-control" name="course_duration_second"
-                                       value="{{ old('course_duration_second') }}" placeholder="SS">
+                                       value="{{ $course_edit->course_duration_second }}" placeholder="SS">
                             </div>
                         </div>
 
@@ -113,7 +115,8 @@ active
                                 <label class="form-control-label">Course Start Date: <span
                                         class="tx-danger">*</span></label>
                                 <input type="date" class="form-control" name="coursef_start_date"
-                                       value="{{ old('coursef_start_date') }}">
+                                       value="{{ $course_edit->coursef_start_date }}">
+
                             </div>
                         </div>
 
@@ -122,7 +125,7 @@ active
                                 <label class="form-control-label">Registration End Date: <span
                                         class="tx-danger">*</span></label>
                                 <input type="date" class="form-control" name="coursef_end_date"
-                                       value="{{ old('coursef_end_date') }}">
+                                       value="{{ $course_edit->coursef_end_date }}">
                             </div>
                         </div>
                     </div>
@@ -133,8 +136,7 @@ active
                                 <label class="form-control-label">Benefits of the course: <span
                                         class="tx-danger">*</span></label>
                                 <textarea name="benefits_of_the_course" cols="10" class="form-control"
-                                          placeholder="Benefits of the course"
-                                          value="{{ old('benefits_of_the_course') }}"></textarea>
+                                          placeholder="Benefits of the course">{{ $course_edit->benefits_of_the_course }}</textarea>
                             </div>
                             @error('about_description')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -148,8 +150,7 @@ active
                                 <label class="form-control-label">Requirements/Instruction: <span
                                         class="tx-danger">*</span></label>
                                 <textarea name="requirements" cols="10" class="form-control"
-                                          placeholder="Benefits of the course"
-                                          value="{{ old('requirements') }}"></textarea>
+                                          placeholder="Benefits of the course">{{ $course_edit->requirements }}</textarea>
                             </div>
                             @error('about_description')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -162,8 +163,7 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Target Audience: </label>
                                 <textarea name="target_audience" cols="10" class="form-control"
-                                          placeholder="Target Audience"
-                                          value="{{ old('target_audience') }}"></textarea>
+                                          placeholder="Target Audience">{{ $course_edit->target_audience }}</textarea>
                             </div>
                             @error('about_description')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -176,8 +176,7 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Materials Included: </label>
                                 <textarea name="materials_included" cols="10" class="form-control"
-                                          placeholder="Materials Included"
-                                          value="{{ old('materials_included') }}"></textarea>
+                                          placeholder="Materials Included">{{ $course_edit->materials_included }}</textarea>
                             </div>
                             @error('about_description')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -190,8 +189,7 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">What Will I Learn: </label>
                                 <textarea name="what_will_learn" cols="10" class="form-control"
-                                          placeholder="What Will I Learn"
-                                          value="{{ old('what_will_learn') }}"></textarea>
+                                          placeholder="What Will I Learn">{{ $course_edit->what_will_learn }}</textarea>
                             </div>
                             @error('what_will_learn')
                             <strong class="text-danger">{{ $message }}</strong>
@@ -204,15 +202,13 @@ active
                             <div class="form-group">
                                 <label class="form-control-label">Topics of Course: </label>
                                 <textarea name="topics_of_course" cols="10" class="form-control"
-                                          placeholder="Topics of Course"
-                                          value="{{ old('topics_of_course') }}"></textarea>
+                                          placeholder="Topics of Course">{{ $course_edit->topics_of_course }}</textarea>
                             </div>
                             @error('what_will_learn')
                             <strong class="text-danger">{{ $message }}</strong>
                             @enderror
                         </div>
                     </div>
-
 
             </div>
             <div class="form-layout-footer">

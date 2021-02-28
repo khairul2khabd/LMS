@@ -38,13 +38,18 @@ Route::post('admin', [LoginController::class, 'login']);
 Route::get('admin/createcourse', [CoursesController::class, 'index'])->name('course.index');
 Route::post('admin/createcourse', [CoursesController::class, '_courseCreate'])->name('course.create');
 Route::get('admin/course-list',[CoursesController::class,'CourseList'])->name('course.list');
+Route::get('admin/course/edit/{id}',[CoursesController::class,'edit']);
+Route::post('admin/course-update',[CoursesController::class,'update'])->name('course.update');
+
+//////////////// Course view public //////////////////////
+Route::get('courseview', [RoutesController::class, '_courseView'])->name('course.view'); // public view
 
 Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 
 Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 Route::get('admin/text-manage', [HomeSectionController::class, 'TextManage'])->name('text.manage');
 Route::get('admin/course-text/edit/{id}', [HomeSectionController::class, 'CourseEdit']);
-Route::post('admin/course-text/update', [HomeSectionController::class, 'CourseUpdate'])->name('hometext.update');
+//Route::post('admin/course-text/update', [HomeSectionController::class, 'CourseUpdate'])->name('hometext.update');
 Route::get('admin/course/delete/{id}', [HomeSectionController::class, 'CourseDelete']);
 Route::get('admin/course/inactive/{id}', [HomeSectionController::class, 'CourseInactive']);
 Route::get('admin/course/active/{id}', [HomeSectionController::class, 'CourseActive']);
@@ -63,9 +68,6 @@ Route::post('admin/topic-store', [HomeSectionController::class, 'TopicStore'])->
 Route::get('admin/topic-manage', [HomeSectionController::class, 'ManageTopic'])->name('manage.topic');
 Route::get('admin/topic/edit/{id}', [HomeSectionController::class, 'TopicEdit']);
 Route::post('admin/topic/update', [HomeSectionController::class, 'TopicUpdate'])->name('topic.update');
-
-//////////////// Course view //////////////////////
-Route::get('courseview', [RoutesController::class, '_courseView'])->name('course.view'); // public view
 
 
 /////////////// Student Registration  ///////////////

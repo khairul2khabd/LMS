@@ -6,90 +6,47 @@
 $home = App\Models\HomeText::latest()->get();
 @endphp --}}
 
+<style>
+    .shadow-lg {
+        box-shadow: 0 4rem 3rem rgba(0, 0, 0, 0.175) !important
+    }
+    .shadow-lg:hover {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        cursor: pointer;
+    }
+    .card-text{color:black}
+</style>
+
 <!-- Service Section Start -->
-<section class="services" id="service">
-    <div class="max-width">
-        <h2 class="title wow fadeInLeftBig fisrt-word" data-wow-duration="2s" data-wow-delay="0s"">My Service</h2>
-        <div class="service-content">
-            <div class="card">
-                <div class="box">
-                    <i class="fas fa fa-code"></i>
-                    <div class="text">Web development</div>
-                    <p>I have great experience in web development using different scripting language including PHP, JavaScript, hands on experience in HTML, CSS and bootstrap to make the website responsive and eye catching design.</p>
-                </div> <!-- box -->
-            </div> <!-- Card -->
-            <div class="card">
-                <div class="box">
-                    <i class="fas fa fa-code"></i>
-                    <div class="text">woocommerce</div>
-                    <p>I provided a guarantee to develop the Best Selling Ecommerce Website using php laravel Woocommerce. At Techhikers, we ensure the quality of Online Store using attractive layouts containing stunning designs, High-end payment Gateways, and SEO friendly Multi Vendor Ecommerce stores.
-                    </p>
-                </div> <!-- box -->
-            </div> <!-- Card -->
-            <div class="card">
-                <div class="box">
-                    <i class="fas fa fa-code"></i>
-                    <div class="text">PHP Developer</div>
-                    <p>I have great and excellent command on PHP programming web development language. I have also experienced on mysql,sql server and many other databases.
-                        I am providing professional  and high quality services</p>
-                </div> <!-- box -->
-            </div> <!-- Card -->
+<div class="container-fluid">
 
-        </div> <!-- home content -->
-    </div><!-- max-width -->
-</section> <!-- About-section -->
-<!-- Serviece Section End -->
+    <div class="row">
+        <div class="col-sm-3"> </div>
+        <div class="col-sm-3"><strong> {{$count}} Courses </strong></div>
+    </div>
 
-<!-- Skills Sections Start -->
-<section class="skills" id="skills">
-    <div class="max-width">
-        <h2  class="title wow fadeInLeftBig fisrt-word" data-wow-duration="2s" data-wow-delay="0s"">My Skills</h2>
-        <div class="skills-content">
-            <div class="column left">
-                <div class="text">my creative skills & exprience.</div>
-                <p>I am Web Developer with 2+ years of experience in web development. I have worked on many web developer with php laravel framework. I have advance knowledge of HTML 5, PHP, Laravel, WordPress good knowledge of JavaScript, Bootstrap, and JQuery.I love to explore new things and techniques. I would love to help you with your desire website project. I'm a hard working and dedicated person. </p>
-                </a>
-            </div> <!-- column left -->
-            <div class="column right">
-                <div class="bars">
-                    <div class="info">
-                        <span>HTML</span>
-                        <span>92%</span>
-                    </div> <!-- info -->
-                    <div class="line html"></div>
-                </div> <!-- bars -->
-                <div class="bars">
-                    <div class="info">
-                        <span>CSS</span>
-                        <span>85%</span>
-                    </div> <!-- info -->
-                    <div class="line html"></div>
-                </div> <!-- bars -->
-                <div class="bars">
-                    <div class="info">
-                        <span>Javascript</span>
-                        <span>73%</span>
-                    </div> <!-- info -->
-                    <div class="line js"></div>
-                </div> <!-- bars -->
-                <div class="bars">
-                    <div class="info">
-                        <span>PHP</span>
-                        <span>88%</span>
-                    </div> <!-- info -->
-                    <div class="line php"></div>
-                </div> <!-- bars -->
-                <div class="bars">
-                    <div class="info">
-                        <span>My SySQL</span>
-                        <span>75%</span>
-                    </div> <!-- info -->
-                    <div class="line mysql"></div>
-                </div> <!-- bars -->
-            </div> <!-- column right -->
-        </div> <!-- Skill Content -->
-    </div><!-- max-width -->
-</section> <!-- Skill Section -->
 
+
+
+    @foreach($courseList->chunk(3) as $items)
+    <div class="row course-set courses__row" style="color: black;">
+        <div class="col-sm-3"></div>
+        @foreach($items as $item)
+        <div class="col-sm-3">
+            <div class="card iq-mb-3 shadow-lg">
+                <img src="{{ asset($item->image) }}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{$item->course_title}}</h4>
+                    <p class="card-text">Course Duration : {{$item->course_duration_hour}}:{{$item->course_duration_minute}}:{{$item->course_duration_second}}
+                        <br>Course Start Date : {{$item->coursef_start_date}} <br>Course End Date : {{$item->coursef_end_date}}</p>
+                    <a href="#" class="btn btn-primary">Get Enrolled</a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    @endforeach
+
+</div>
 
 @endsection
