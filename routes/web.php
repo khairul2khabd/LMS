@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\HomeSectionController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CourseCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::post('admin/createcourse', [CoursesController::class, '_courseCreate'])->
 Route::get('admin/course-list',[CoursesController::class,'CourseList'])->name('course.list');
 Route::get('admin/course/edit/{id}',[CoursesController::class,'edit']);
 Route::post('admin/course-update',[CoursesController::class,'update'])->name('course.update');
+
+Route::get('admin/coucat', [CourseCategoriesController::class, 'index'])->name('course_categories.index');
+Route::post('admin/coucat', [CourseCategoriesController::class, '_courseCategoriesCreate'])->name('course.create_categories');
+Route::get('admin/categories-list',[CourseCategoriesController::class,'_courseCategoriesList'])->name('categories.list');
 
 //////////////// Course view public //////////////////////
 Route::get('courseview', [RoutesController::class, '_courseView'])->name('course.view'); // public view

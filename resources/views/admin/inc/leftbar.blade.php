@@ -28,10 +28,9 @@
        </div><!-- menu-item -->
      </a><!-- sl-menu-link -->
      <ul class="sl-menu-sub nav flex-column">
-<!--       <li class="nav-item"><a href="{{ route('course.learn') }}" class="nav-link @yield('course_learn')">COURSE LEARN</a></li>-->
-<!--       <li class="nav-item"><a href="{{ route('topic.course') }}" class="nav-link @yield('topic_course')">TOPIC COURSE</a></li>-->
-         <li class="nav-item"><a href="{{ route('course.index') }}" class="nav-link @yield('course_text')">CREATE COURSE</a></li>
-         <li class="nav-item"><a href="{{ route('course.list') }}" class="nav-link @yield('course_text')">CREATE LIST</a></li>
+         <li class="nav-item"><a href="{{ route('course.index') }}" class="nav-link @yield('course_text')">Create Course</a></li>
+         <li class="nav-item"><a href="{{ route('course.list') }}" class="nav-link @yield('course_text')">Course List</a></li>
+         <li class="nav-item"><a href="{{ route('categories.list') }}" class="nav-link @yield('course_text')">Course Categories</a></li>
      </ul>
    </div><!-- sl-sideleft-menu -->
    <br>
