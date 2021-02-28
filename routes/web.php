@@ -35,9 +35,11 @@ Route::get('admin', [LoginController::class, 'showLoginForm'])->name('login.admi
 Route::post('admin', [LoginController::class, 'login']);
 
 ////////////////////////Admin courses//////////////////////////////////////////////////////////////
-Route::get('admin/createcourse', [CoursesController::class, 'index'])->name('course.create');
+Route::get('admin/createcourse', [CoursesController::class, 'index'])->name('course.index');
+Route::post('admin/createcourse', [CoursesController::class, '_courseCreate'])->name('course.create');
+Route::get('admin/course-list',[CoursesController::class,'CourseList'])->name('course.list');
 
-
+Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 
 Route::post('admin/hometext-store', [HomeSectionController::class, 'HometextStore'])->name('hometext.store');
 Route::get('admin/text-manage', [HomeSectionController::class, 'TextManage'])->name('text.manage');
