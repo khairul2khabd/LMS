@@ -39,7 +39,7 @@
 
     <!-- fontend custome end -->
 </head>
-<body class="iq-page-menu-horizontal right-column-fixed">
+<body class="iq-page-menu-horizontal ">
 
 <!-- loader Start -->
 <!--<div id="loading">-->
@@ -184,16 +184,10 @@
 </div>
 
 
-<footer class="bg-white iq-footer">
+<footer class="bg-white iq-footer" style="height: 50px; margin-top:10px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-6 text-right">
                 Copyright 2021 <a href="www.ctechbd.com">Crystal Technology Bangladesh Ltd.</a> All Rights Reserved.
             </div>
         </div>
@@ -214,21 +208,6 @@
 <script src="{{ asset('public/frontend') }}/plugins/easing/easing.js"></script>
 <script src="{{ asset('public/frontend') }}/js/custom.js"></script>
 
-
-<!-- Custom Js -->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
-<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
-<!--        crossorigin="anonymous"></script>-->
-<!---->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
-<!--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
-<!--        crossorigin="anonymous"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
-<!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
-<!--        crossorigin="anonymous"></script>-->
-<!--<script src="https://kit.fontawesome.com/042b6d566d.js" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>-->
 
 <script src="{{ asset('public/frontend') }}/js/wow.min.js"></script>
 <script src="{{ asset('public/frontend') }}/js/owl.carousel.min.js"></script>
