@@ -86,24 +86,25 @@ class CoursesController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show(Courses $courses)
-    {
-        //
-    }
-
     public function edit($id)
     {
-        print $id;
         $course_edit = Courses::findOrFail($id);
         return view('admin.course.course-edit', compact('course_edit'));
     }
 
+    //Course Active
+    public function courseActiveInactive($sts, $id)
+    {
+        print $sts;
+        Courses::findOrFail($id)->update(
+            ['status' => 1]
+        );
+        $notification = array(
+            'message' => 'Successfully updated',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 
     public function update(Request $request)
     {

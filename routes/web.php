@@ -41,6 +41,7 @@ Route::post('admin/createcourse', [CoursesController::class, '_courseCreate'])->
 Route::get('admin/course-list',[CoursesController::class,'CourseList'])->name('course.list');
 Route::get('admin/course/edit/{id}',[CoursesController::class,'edit']);
 Route::post('admin/course-update',[CoursesController::class,'update'])->name('course.update');
+Route::get('admin/course-ai/{sts}/{id}',[CoursesController::class,'courseActiveInactive']);
 
 Route::get('admin/coucat', [CourseCategoriesController::class, 'index'])->name('course_categories.index');
 Route::post('admin/coucat', [CourseCategoriesController::class, '_courseCategoriesCreate'])->name('course.create_categories');

@@ -67,7 +67,8 @@ active
                                                class="btn btn-danger btn-sm mr-1 ml-1" id="delete"><i
                                                     class="fa fa-trash"></i></a>
                                             @if ($course->status == 1)
-                                            <a href="{{ url('admin/course-page/inactive/'.$course->id) }}"
+
+                                            <a href="{{ url('admin/course-ai/'.$course->id/$course->id) }}"
                                                class="btn btn-success btn-sm"><i class="fa fa-arrow-down"></i></a>
                                             @else
                                             <a href="{{ url('admin/course-page/active/'.$course->id) }}"
