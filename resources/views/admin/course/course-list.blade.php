@@ -44,6 +44,7 @@ active
                                     <tbody>
                                     @php
                                     $sl = 1
+
                                     @endphp
                                     @foreach ($course as $course)
                                     <tr>
@@ -68,11 +69,11 @@ active
                                                     class="fa fa-trash"></i></a>
                                             @if ($course->status == 1)
 
-                                            <a href="{{ url('admin/course-ai/'.$course->id/$course->id) }}"
+                                            <a href="{{ url('admin/course-ai/'. 'active' . '/' . $course->id) }}"
                                                class="btn btn-success btn-sm"><i class="fa fa-arrow-down"></i></a>
                                             @else
-                                            <a href="{{ url('admin/course-page/active/'.$course->id) }}"
-                                               class="btn btn-danger"><i class="fa fa-arrow-up"></i></a>
+                                            <a href="{{ url('admin/course-ai/'. 'inactive' . '/' . $course->id) }}"
+                                               class="btn btn-danger btn-sm"><i class="fa fa-arrow-up"></i></a>
                                             @endif
                                         </td>
                                     </tr>

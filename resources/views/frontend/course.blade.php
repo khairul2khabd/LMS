@@ -25,9 +25,6 @@ $home = App\Models\HomeText::latest()->get();
         <div class="col-sm-3"><strong> {{$count}} Courses </strong></div>
     </div>
 
-
-
-
     @foreach($courseList->chunk(3) as $items)
     <div class="row course-set courses__row" style="color: black;">
         <div class="col-sm-3"></div>

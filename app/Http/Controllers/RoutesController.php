@@ -9,7 +9,8 @@ class RoutesController extends Controller
 {
     public function _courseView()
     {
-        $courseList = Courses::orderBy('id', 'DESC')->get();
+        $courseList = Courses::where('status', '=', '1')->orderBy('id', 'DESC')->get();
+        //        $courseList = Courses::orderBy('id', 'DESC')->get();
         $count = count($courseList);
         return view('frontend.course' , compact('courseList', 'count'));
     }

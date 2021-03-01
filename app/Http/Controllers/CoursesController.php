@@ -96,9 +96,16 @@ class CoursesController extends Controller
     public function courseActiveInactive($sts, $id)
     {
         print $sts;
-        Courses::findOrFail($id)->update(
-            ['status' => 1]
-        );
+        if ($sts === "active") {
+            Courses::findOrFail($id)->update(
+                ['status' => 2]
+            );
+        }else{
+            Courses::findOrFail($id)->update(
+                ['status' => 1]
+            );
+        }
+
         $notification = array(
             'message' => 'Successfully updated',
             'alert-type' => 'success'
