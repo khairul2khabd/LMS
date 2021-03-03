@@ -9,6 +9,11 @@
     .header-title {
         margin-bottom: 20px;
     }
+
+    .grab {
+        cursor: -webkit-grab;
+        cursor: grab;
+    }
 </style>
 
 <div class="container">
@@ -59,7 +64,19 @@
                 <div class="card-body">
 
                     <div class="row header-title">
-                        <img src="{{ asset($course->image) }}" class="card-img-top" alt="">
+                        <div class="offset-sm-1 col-sm-10">
+                            <img src="{{ asset($course->image) }}" class="card-img-top" alt="">
+                        </div>
+                        <div class="col-sm-2">&nbsp;</div>
+                    </div>
+
+                    <div class="row header-title">
+                        <div class="offset-sm-2 col-sm-10">
+                            <button onclick="location.href='{{ route('student.registration', $course->id) }}'"
+                                    class="btn btn-success btn-sm grab">Enroll with the Course
+                            </button>
+                        </div>
+                        <div class="col-sm-2">&nbsp;</div>
                     </div>
 
                     <div class="embed-responsive embed-responsive-16by9 header-title">

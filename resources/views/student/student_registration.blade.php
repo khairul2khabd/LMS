@@ -61,15 +61,15 @@
             <div class="card">
 
                 <div class="card-body">
-                    <form action="{{ route('student.create') }}" method="post">
+                    <form action="{{ route('student.create') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Course Name : <span class="tx-danger">*</span></label>
-                                        <input name="course_name" id="" type="text" class="form-control"
-                                               placeholder="Course Name" value="{{ old('name') }}"></input>
+                                        <input readonly name="course_name" id="" type="text" class="form-control"
+                                               placeholder="Course Name" value="{{ $course->course_title }}"></input>
                                     </div>
                                     @error('course_name')
                                     <strong class="text-danger">{{ $message }}</strong>
@@ -271,7 +271,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

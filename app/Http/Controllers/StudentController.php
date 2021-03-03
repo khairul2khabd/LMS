@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Courses;
 use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Intervention\Image\Facades\Image;
 
 class StudentController extends Controller
 {
@@ -14,9 +16,10 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('student.student_registration');
+        $course = Courses::findOrFail($id);
+        return view('student.student_registration', compact('course'));
     }
 
     /**
@@ -27,14 +30,24 @@ class StudentController extends Controller
 
     public function create(request $request)
     {
-//        $request->validate([
-//            'course_title' => 'required',
-//            'about_course' => 'required',
-//            'about_description' => 'required',
-//        ], [
-//            'course_title.required' => 'please course title required',
-//        ]);
-        Student::insert([
+        $request->validate([
+            'course_name' => 'required',
+            'student_name' => 'required',
+            'gender' => 'required',
+            'photo' => 'required',
+            'date_of_birth' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required'
+        ]);
+
+        $photo = $request->file('photo');
+        $name_gen = uniqid() . '.' . $photo->getClientOriginalExtension();
+        Image::make($photo)->resize(166, 110)->save('public/backend/student/' . $name_gen);
+        $save_url = 'public/backend/student/' . $name_gen;
+
+        $student = Student::insert([
             'course_name' => $request->course_name,
             'student_name' => $request->student_name,
             'gender' => $request->gender,
@@ -46,7 +59,7 @@ class StudentController extends Controller
             'district' => $request->district,
             'upazila' => $request->upazila,
             'nid' => $request->nid,
-            'photo' => $request->photo,
+            'photo' => $request->$save_url,
             'father_name' => $request->father_name,
             'father_phone' => $request->father_phone,
             'mother_name' => $request->mother_name,
@@ -54,63 +67,18 @@ class StudentController extends Controller
             'status' => 1,
             'created_at' => Carbon::now(),
         ]);
-        return redirect()->back()->with('success', 'Enrolled Successfully Added');
+        $notification = array(
+            'message' => 'Registration Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('student.registration.success', [$student]);
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view('student.student_registration_success', compact('student'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Student $student)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Student $student)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Student $student)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Student $student
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Student $student)
-    {
-        //
-    }
 }
