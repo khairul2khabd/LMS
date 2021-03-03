@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '32c6a95b75d55fcd9d5b17f41a2f27a2b797edf6',
+    'reference' => '8b3141407438fe380aca02f33e444c0a8e9459b1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -478,7 +478,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '32c6a95b75d55fcd9d5b17f41a2f27a2b797edf6',
+      'reference' => '8b3141407438fe380aca02f33e444c0a8e9459b1',
     ),
     'laravel/sail' => 
     array (
@@ -1206,6 +1206,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '313a38f09c77fbcdc1d223e57d368cea76a2fd2f',
+    ),
+    'symfony/psr-http-message-bridge' => 
+    array (
+      'pretty_version' => 'v2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '81db2d4ae86e9f0049828d9343a72b9523884e5d',
     ),
     'symfony/routing' => 
     array (

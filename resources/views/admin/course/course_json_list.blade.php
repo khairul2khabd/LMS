@@ -29,6 +29,10 @@ active
                 <div class="col-sm-12 col-lg-12">
                     <div class="iq-card">
                         <div class="iq-card-body">
+
+                            {{ $response }}
+
+
                             <table class="table">
                                 <thead class="thead-dark">
                                 <tr>
@@ -43,33 +47,8 @@ active
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php
-                                $sl = 1
-                                @endphp
 
-                                @foreach ($students as $student)
-                                <tr>
-                                    <th scope="row">{{ $sl++ }}</th>
-                                    <td><img src="{{ asset($student->photo) }}" width="40" height="40"
-                                             class="img-circle" alt="image">
-                                    </td>
-                                    <td>{{ $student->student_name }}</td>
-                                    <td>{{ $student->course_name }}</td>
-                                    <td>{{ $student->gender }}</td>
-                                    <td>{{ $student->date_of_birth }}</td>
-                                    <td>{{ $student->mobile }}</td>
-                                    <td class="d-flex">
-                                        <a href="{{ route('student.approved') }}"
-                                           class="btn btn-primary btn-sm" title="Edit">Approved</a>
-                                        <a href="{{ url('admin/course/page/delete/'.$student->id) }}"
-                                           class="btn btn-danger btn-sm mr-1 ml-1" id="delete">
-                                            Reject
-                                        </a>
-                                        <a href="{{ route('moodle.course.list') }}"
-                                           class="btn btn-primary btn-sm" title="Edit">Moodle Course List</a>
-                                    </td>
-                                </tr>
-                                @endforeach
+
                                 </tbody>
                             </table>
                         </div>

@@ -89,6 +89,7 @@ class ComposerStaticInit4056c45248d78d4942fbfd8020515cf6
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
         ),
         'R' => 
         array (
@@ -317,6 +318,10 @@ class ComposerStaticInit4056c45248d78d4942fbfd8020515cf6
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Symfony\\Bridge\\PsrHttpMessage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -535,10 +540,12 @@ class ComposerStaticInit4056c45248d78d4942fbfd8020515cf6
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\CourseCategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CourseCategoriesController.php',
         'App\\Http\\Controllers\\CoursesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CoursesController.php',
         'App\\Http\\Controllers\\Frontend\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/IndexController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\RoutesController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoutesController.php',
+        'App\\Http\\Controllers\\StudentAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/StudentAuthController.php',
         'App\\Http\\Controllers\\StudentController' => __DIR__ . '/../..' . '/app/Http/Controllers/StudentController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -551,6 +558,7 @@ class ComposerStaticInit4056c45248d78d4942fbfd8020515cf6
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
+        'App\\Models\\CourseCategories' => __DIR__ . '/../..' . '/app/Models/CourseCategories.php',
         'App\\Models\\CourseTopic' => __DIR__ . '/../..' . '/app/Models/CourseTopic.php',
         'App\\Models\\Courses' => __DIR__ . '/../..' . '/app/Models/Courses.php',
         'App\\Models\\HomeText' => __DIR__ . '/../..' . '/app/Models/HomeText.php',
@@ -4467,6 +4475,13 @@ class ComposerStaticInit4056c45248d78d4942fbfd8020515cf6
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\ArgumentValueResolver\\PsrServerRequestResolver' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/ArgumentValueResolver/PsrServerRequestResolver.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\EventListener\\PsrResponseListener' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/EventListener/PsrResponseListener.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\Factory\\HttpFoundationFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/HttpFoundationFactory.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\Factory\\PsrHttpFactory' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/PsrHttpFactory.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\Factory\\UploadedFile' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Factory/UploadedFile.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\HttpFoundationFactoryInterface' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/HttpFoundationFactoryInterface.php',
+        'Symfony\\Bridge\\PsrHttpMessage\\HttpMessageFactoryInterface' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/HttpMessageFactoryInterface.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Color' => __DIR__ . '/..' . '/symfony/console/Color.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
