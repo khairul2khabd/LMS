@@ -20,7 +20,8 @@
 
     <style>
         .ut{
-            height: 35px;
+
+            border: none;height: 35px;
             padding: 5px;
             background: white;
             box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
@@ -32,7 +33,6 @@
             font-family: Arial, Verdana;
             font-size: 15px;
             color: #878989;
-            border: none;
         }
 
     </style>

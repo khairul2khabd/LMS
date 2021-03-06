@@ -5,11 +5,9 @@
     .header-text {
         color: #000;
     }
-
     .header-title {
         margin-bottom: 20px;
     }
-
     .grab {
         cursor: -webkit-grab;
         cursor: grab;
