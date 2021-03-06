@@ -3,7 +3,7 @@
 @section('Course_section')
 active show-sub
 @endsection
-@section('course_text')
+@section('create_course')
 active
 @endsection
 
@@ -24,11 +24,12 @@ active
 </style>
 
 <div class="sl-mainpanel select-menu-text">
-    <nav class="breadcrumb sl-breadcrumb select-menu-text">
-        <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
-        <a class="breadcrumb-item" href="{{ route('course.create') }}">COURSE CREATE</a>
-        <span class="breadcrumb-item active">ADD</span>
-    </nav>
+    <div class="ut">
+        <a class="breadcrumb-item" href="{{ url('admin/home') }}"> </i>Home</a>
+        <a class="breadcrumb-item" href="{{ route('course.create') }}"> </i>Course Create</a>
+        <span class="breadcrumb-item"> Add</span>
+    </div>
+
     <div class="sl-pagebody">
 
         <div class="card pd-20 pd-sm-40">

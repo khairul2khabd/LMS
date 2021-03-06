@@ -17,6 +17,26 @@
 
     <!-- Starlight CSS -->
     <link rel="stylesheet" href="{{ asset('public/backend') }}/css/starlight.css">
+
+    <style>
+        .ut{
+            height: 35px;
+            padding: 5px;
+            background: white;
+            box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+            margin: 0px;
+            padding-left: 20px;
+            outline: none !important;
+            text-decoration: none;
+            width: 100%;
+            font-family: Arial, Verdana;
+            font-size: 15px;
+            color: #878989;
+            border: none;
+        }
+
+    </style>
+
 </head>
 <body>
 @guest
@@ -26,18 +46,15 @@
 @include('admin.inc.leftbar')
 
 <!-- ########## START: HEAD PANEL ########## -->
-<div class="sl-header">
+<div class="sl-header" style="background-color: white">
     <div class="sl-header-left">
-        <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a>
-        </div>
-        <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a>
-        </div>
+         <a id="btnLeftMenu" href="" style="margin-left:10px"><i class="icon ion-navicon-round fa-2x"></i></a>
     </div><!-- sl-header-left -->
     <div class="sl-header-right">
         <nav class="nav">
             <div class="dropdown">
                 <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                    <span class="logged-name">{{ Auth::user()->name }}<span class="hidden-md-down"></span></span>
+                    <span class="logged-name" style="color: black">{{ Auth::user()->name }}<span class="hidden-md-down"></span></span>
                     <!--                    <img src="../img/img3.jpg" class="wd-32 rounded-circle" alt="">-->
                 </a>
                 <div class="dropdown-menu dropdown-menu-header wd-200">
@@ -55,7 +72,9 @@
         </nav>
 
     </div><!-- sl-header-right -->
+
 </div><!-- sl-header -->
+
 <!-- ########## END: HEAD PANEL ########## -->
 
 

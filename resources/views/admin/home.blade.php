@@ -6,10 +6,12 @@
 
 @section('admin_content')
  <!-- ########## START: MAIN PANEL ########## -->
+
  <div class="sl-mainpanel">
-    <nav class="breadcrumb sl-breadcrumb">
-      <span class="breadcrumb-item active">Dashboard</span>
-    </nav>
+
+        <div class="ut">
+            <a class="breadcrumb-item" href="{{ url('admin/home') }}"> </i>Dashboard</a>
+        </div>
 
   </div><!-- sl-mainpanel -->
   <!-- ########## END: MAIN PANEL ########## -->

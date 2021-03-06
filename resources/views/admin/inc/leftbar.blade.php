@@ -1,5 +1,9 @@
 <!-- ########## START: LEFT PANEL ########## -->
-<div class="sl-logo"><a href="">Admin Panel</a></div>
+<div class="sl-logo" style="background-color: white">
+    <a href="{{ url('admin/home') }}">
+        <img src="{{ asset('public/frontend') }}/images/idea-logo.png" class="img-fluid" alt="">
+    </a>
+</div>
 <div class="sl-sideleft">
     <div class="sl-sideleft-menu">
         <a href="{{ url('/') }}" class="sl-menu-link" target="_blank">
@@ -19,35 +23,35 @@
 
         <a href="#" class="sl-menu-link @yield('Course_section')">
             <div class="sl-menu-item">
-                <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+                <i class="fa fa-list"></i>
                 <span class="menu-item-label">COURSE MANAGE</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{ route('course.index') }}" class="nav-link @yield('course_text')">Create
+            <li class="nav-item"><a href="{{ route('course.index') }}" class="nav-link @yield('create_course')">Create
                     Course</a></li>
-            <li class="nav-item"><a href="{{ route('course.list') }}" class="nav-link @yield('course_text')">Course
+            <li class="nav-item"><a href="{{ route('course.list') }}" class="nav-link @yield('course_list')">Course
                     List</a></li>
-            <li class="nav-item"><a href="{{ route('categories.list') }}" class="nav-link @yield('course_text')">Course
+            <li class="nav-item"><a href="{{ route('categories.list') }}" class="nav-link @yield('course_categories')">Course
                     Categories</a></li>
         </ul>
 
 
-        <a href="#" class="sl-menu-link @yield('Course_section')">
+        <a href="#" class="sl-menu-link @yield('student_section')">
             <div class="sl-menu-item">
-                <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+                <i class="fa fa-user-secret"></i>
                 <span class="menu-item-label">STUDENT MANAGE</span>
                 <i class="menu-item-arrow fa fa-angle-down"></i>
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{ route('student.list') }}" class="nav-link @yield('course_text')">
+            <li class="nav-item"><a href="{{ route('student.list') }}" class="nav-link @yield('student_list')">
                     Student List</a></li>
         </ul>
 
 
     </div><!-- sl-sideleft-menu -->
-    <br>
+
 </div><!-- sl-sideleft -->
 <!-- ########## END: LEFT PANEL ########## -->

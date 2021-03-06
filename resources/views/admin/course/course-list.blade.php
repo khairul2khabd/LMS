@@ -3,24 +3,26 @@
 @section('Course_section')
 active show-sub
 @endsection
-@section('course_text')
+@section('course_list')
 active
 @endsection
 
 @section('admin_content')
 
 <style>
-    img {
+    ._img {
         border-radius: 50%;
     }
 </style>
 
 <div class="sl-mainpanel select-menu-text">
-    <nav class="breadcrumb sl-breadcrumb select-menu-text">
-        <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
-        <a class="breadcrumb-item" href="{{ route('course.list') }}">COURSE LIST</a>
-        <span class="breadcrumb-item active">LIST</span>
-    </nav>
+
+    <div class="ut">
+        <a class="breadcrumb-item" href="{{ url('admin/home') }}"> </i>Home</a>
+        <a class="breadcrumb-item" href="{{ route('course.list') }}"> </i>Course List</a>
+        <span class="breadcrumb-item"> List</span>
+    </div>
+
     <div class="sl-pagebody">
 
         <div class="card pd-40 pd-sm-40">

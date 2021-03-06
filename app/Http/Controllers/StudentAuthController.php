@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Courses;
 use App\Models\Student;
+use App\Models\ApiCourse;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use function MongoDB\BSON\toJSON;
@@ -27,12 +28,9 @@ class StudentAuthController extends Controller
 
     public function _studentApproved()
     {
-
         $token = 'edf639510950af557deeb0fed264379e';  /// token done
-        $token_for_course_list = '1c3d808e11cb791efbfbd3c3d040a7ef';  /// token done
         $domainname = 'http://192.168.1.157/moodle';
         $functionname = 'core_user_create_users';
-        $functionname_for_course_list = 'core_course_get_courses';
         $restformat = 'xml';
 
         $user1 = new stdClass();
@@ -58,8 +56,6 @@ class StudentAuthController extends Controller
         $users = array($user1);
         $params = array('users' => $users);
 
-//        https://192.168.1.157/moodle/webservice/rest/server.php?wstoken=1c3d808e11cb791efbfbd3c3d040a7ef&moodlewsrestformat=json&wsfunction=core_course_get_courses
-
         $client = new \GuzzleHttp\Client();
         $body['name'] = "Testing";
         $url = $domainname . '/webservice/rest/server.php' . '?wstoken=' . $token . '&wsfunction=' . $functionname;
@@ -70,7 +66,6 @@ class StudentAuthController extends Controller
 
     public function _courseList()
     {
-
         $token = '1c3d808e11cb791efbfbd3c3d040a7ef';  /// token done
         $domainname = 'http://192.168.1.157/moodle';
         $functionname = 'core_course_get_courses';
@@ -78,26 +73,22 @@ class StudentAuthController extends Controller
 //        https://192.168.1.157/moodle/webservice/rest/server.php?
 //        wstoken=1c3d808e11cb791efbfbd3c3d040a7ef&moodlewsrestformat=json&wsfunction=core_course_get_courses
 
-        header('Content-Type: text/plain');
-//        $serverurl = $domainname . '/webservice/rest/server.php' . '?wstoken=' . $token . '&moodlewsrestformat=' . $restformat .
-//            '&&wsfunction=' . $functionname;
+        header('Content-Type: json');
 
         $client = new \GuzzleHttp\Client();
         $url = $domainname . '/webservice/rest/server.php' . '?wstoken=' . $token . '&moodlewsrestformat=' . $restformat .
             '&&wsfunction=' . $functionname;
         $response = $client->request("GET", $url);
+        $json = $response->getBody()->getContents();
+
+//        Response::json(['user'=>$user,'post'=>$post,'comment'=>$comment]);
+//        $collection=collect($json);
+
+        $collection = is_array($json) ? $json : array($json);
+        dump(($json));
 
 
-//        return $response;
-
-//        $html_view = view("admin.course.course_json_list",compact('response'))->render();
-
-        return response()->json([
-            'name' => 'Abigail',
-            'state' => 'CA',
-        ]);
-
-        return view('admin.course.course_json_list', compact('response'));
+        return response()->view('admin.course.course_json_list', compact('json'));
     }
 
 }

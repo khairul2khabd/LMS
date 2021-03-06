@@ -1,26 +1,62 @@
 @extends('layouts.admin_master')
 
-@section('Course_section')
+@section('student_section')
 active show-sub
 @endsection
-@section('course_text')
+@section('student_list')
 active
 @endsection
 
 @section('admin_content')
 
 <style>
-    img {
+    .img-circle {
         border-radius: 50%;
     }
+
+    .table > tbody > tr > td,
+    .table > tfoot > tr > td,
+    .table > thead > tr > td {
+        padding-top: 2px;
+        padding-bottom: 1px;
+        height:25px;
+        vertical-align: middle;
+        color:#484848;
+        cursor:pointer;
+    }
+    .table > thead > tr > th {
+        padding-top: 2px;
+        padding-bottom: 1px;
+        height:30px;
+        vertical-align: middle;
+        background: #eee;
+    }
+    .table > tbody > tr:hover{
+        color:#fff;
+        background-color:white;
+        height:20px;
+    }
+    .dropdown-menu {
+        width:25%;
+    }
+    .even {
+        background-color: #F9F8F8;
+    }
+    .odd {
+        background-color: #F6F6F6 ;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .col-sm-2{width:13.66666667%}
+    .mgBottom-10{margin-bottom:10px}
 </style>
 
 <div class="sl-mainpanel select-menu-text">
-    <nav class="breadcrumb sl-breadcrumb select-menu-text">
-        <a class="breadcrumb-item" href="{{ url('admin/home') }}">HOME</a>
-        <a class="breadcrumb-item" href="{{ route('student.list') }}">STUDENT LIST</a>
-        <span class="breadcrumb-item active">LIST</span>
-    </nav>
+
+    <div class="ut">
+        <a class="breadcrumb-item" href="{{ url('admin/home') }}"> </i>Home</a>
+        <a class="breadcrumb-item" href="{{ route('student.list') }}"> </i>Student List</a>
+        <span class="breadcrumb-item"> List</span>
+    </div>
     <div class="sl-pagebody">
 
         <div class="card pd-40 pd-sm-40">
@@ -29,8 +65,8 @@ active
                 <div class="col-sm-12 col-lg-12">
                     <div class="iq-card">
                         <div class="iq-card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
+                            <table class="table table-bordered table-hover f12 black">
+                                <thead >
                                 <tr>
                                     <th scope="col">Sl</th>
                                     <th scope="col">Photo</th>
@@ -48,8 +84,9 @@ active
                                 @endphp
 
                                 @foreach ($students as $student)
-                                <tr>
-                                    <th scope="row">{{ $sl++ }}</th>
+                                @php $class = sizeof($students)/ 2 === 0 ? 'even' : 'odd'; @endphp
+                                <tr class="{{ $class }}">
+                                <td scope="row">{{ $sl++ }}</td>
                                     <td><img src="{{ asset($student->photo) }}" width="40" height="40"
                                              class="img-circle" alt="image">
                                     </td>

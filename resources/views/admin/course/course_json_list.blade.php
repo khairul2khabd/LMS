@@ -13,6 +13,7 @@ active
     img {
         border-radius: 50%;
     }
+    .black{color: black}
 </style>
 
 <div class="sl-mainpanel select-menu-text">
@@ -28,11 +29,11 @@ active
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="iq-card">
-                        <div class="iq-card-body">
+                        <div class="iq-card-body black">
 
-                            {{ $response }}
+                            {{ $json }}
 
-
+                            {{--
                             <table class="table">
                                 <thead class="thead-dark">
                                 <tr>
@@ -47,10 +48,21 @@ active
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                $sl = 1
+                                @endphp
 
+                                <tr>
+                                    <td scope="row">{{ $sl++ }}</td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+
+
+                                </tr>
 
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
                     </div>
                 </div>
