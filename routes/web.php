@@ -84,4 +84,4 @@ Route::post('admin/topic/update', [HomeSectionController::class, 'TopicUpdate'])
 /////////////// Student Registration  ///////////////
 Route::get('student/registration/{id}', [StudentController::class, 'index'])->name('student.registration');
 Route::post('student/student-create', [StudentController::class, 'create'])->name('student.create');
-Route::get('student/reg-success/{id}', [StudentController::class, 'show'])->name('student.registration.success');
+Route::get('student/reg-success/{uuid}', [StudentController::class, 'show'])->name('student.registration.success');

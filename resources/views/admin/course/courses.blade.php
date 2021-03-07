@@ -74,13 +74,27 @@ active
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label">Course Description: <span
+                                <label class="form-control-label">About Course: <span
                                         class="tx-danger">*</span></label>
                                 <textarea name="about_course" cols="10" class="form-control"
-                                          placeholder="About Description"
+                                          placeholder="About Course"
                                           value="{{ old('about_course') }}"></textarea>
                             </div>
                             @error('about_course')
+                            <strong class="text-danger">{{ $message }}</strong>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Course Description:  </label>
+                                <textarea name="course_description" cols="10" class="form-control"
+                                          placeholder="About Description"
+                                          value="{{ old('course_description') }}"></textarea>
+                            </div>
+                            @error('course_description')
                             <strong class="text-danger">{{ $message }}</strong>
                             @enderror
                         </div>

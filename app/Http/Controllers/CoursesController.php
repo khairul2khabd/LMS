@@ -6,6 +6,7 @@ use App\Models\Courses;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class CoursesController extends Controller
 {
@@ -50,11 +51,13 @@ class CoursesController extends Controller
         $name_gen = uniqid() . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(166, 110)->save('public/frontend/images/course/' . $name_gen);
         $save_url = 'public/frontend/images/course/' . $name_gen;
+        $uuid = Str::uuid()->toString();
 
         Courses::insert([
             'image' => $save_url,
             'course_title' => $request->course_title,
             'about_course' => $request->about_course,
+            'course_description' => $request->course_description,
             'course_duration_hour' => $request->course_duration_hour,
             'course_duration_minute' => $request->course_duration_minute,
             'course_duration_second' => $request->course_duration_second,
@@ -67,7 +70,8 @@ class CoursesController extends Controller
             'categories' => "SSSSS",
             'coursef_start_date' => $request->coursef_start_date,
             'coursef_end_date' => $request->coursef_end_date,
-            'maximum_students' => "SS",
+            'maximum_students' => "11",
+            'uuid' => $uuid,
             'status' => 1,
             'created_at' => Carbon::now(),
         ]);

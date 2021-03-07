@@ -15,6 +15,7 @@ $home = App\Models\HomeText::latest()->get();
         cursor: pointer;
     }
     .card-text{color:black}
+    img{padding: 15px;}
 </style>
 
 <!-- Service Section Start -->

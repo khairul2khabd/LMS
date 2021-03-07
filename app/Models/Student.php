@@ -22,6 +22,7 @@ class Student extends Model
         'upazila',
         'nid',
         'photo',
+        'max_student',
         'father_name',
         'father_phone',
         'mother_name',

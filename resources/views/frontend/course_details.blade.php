@@ -31,7 +31,7 @@
                         <tr style="color: black">
                             <td>{{ $course->categories }}</td>
                             <td>{{ $course->course_duration_hour }}</td>
-                            <td></td>
+                            <td>{{$count}}</td>
                             <td></td>
                         </tr>
                         </tbody>

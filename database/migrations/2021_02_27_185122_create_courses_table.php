@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('image')->nullable();
             $table->string('course_title');
             $table->longText('about_course');
+            $table->longText('course_description');
             $table->string('course_duration_hour')->nullable();
             $table->string('course_duration_minute')->nullable();
             $table->string('course_duration_second')->nullable();
@@ -31,6 +32,7 @@ class CreateCoursesTable extends Migration
             $table->date('coursef_start_date')->nullable();
             $table->date('coursef_end_date')->nullable();
             $table->string('maximum_students')->nullable();
+            $table->string('uuid')->nullable();
             $table->string('status')->default(1);
             $table->timestamps();
         });

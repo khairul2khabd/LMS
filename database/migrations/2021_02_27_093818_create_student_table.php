@@ -32,6 +32,7 @@ class CreateStudentTable extends Migration
             $table->string('father_phone')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('mother_phone')->nullable();
+            $table->string('uuid')->nullable();
             $table->string('status')->default(1);
             $table->timestamps();
         });
@@ -44,6 +45,6 @@ class CreateStudentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student');
+        Schema::dropIfExists('students');
     }
 }

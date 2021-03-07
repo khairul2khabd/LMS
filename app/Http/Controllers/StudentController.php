@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -47,7 +48,9 @@ class StudentController extends Controller
         Image::make($photo)->resize(166, 110)->save('public/backend/student/' . $name_gen);
         $save_url = 'public/backend/student/' . $name_gen;
 
-        $student = Student::insert([
+        $uuid = Str::uuid()->toString();
+
+        Student::insert([
             'course_name' => $request->course_name,
             'student_name' => $request->student_name,
             'gender' => $request->gender,
@@ -59,11 +62,12 @@ class StudentController extends Controller
             'district' => $request->district,
             'upazila' => $request->upazila,
             'nid' => $request->nid,
-            'photo' => $request->$save_url,
+            'photo' => $save_url,
             'father_name' => $request->father_name,
             'father_phone' => $request->father_phone,
             'mother_name' => $request->mother_name,
             'mother_phone' => $request->mother_phone,
+            'uuid' => $uuid,
             'status' => 1,
             'created_at' => Carbon::now(),
         ]);
@@ -71,13 +75,12 @@ class StudentController extends Controller
             'message' => 'Registration Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->route('student.registration.success', [$student]);
+        return redirect()->route('student.registration.success', [$uuid]);
     }
 
-
-    public function show($id)
+    public function show($uuid)
     {
-        $student = Student::findOrFail($id);
+        $student = Student::where('uuid', '=', $uuid)->firstOrFail();
         return view('student.student_registration_success', compact('student'));
     }
 

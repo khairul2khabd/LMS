@@ -13,6 +13,7 @@ class Courses extends Model
         'image',
         'course_title',
         'about_course',
+        'course_description',
         'course_duration_hour',
         'course_duration_minute',
         'course_duration_second',
