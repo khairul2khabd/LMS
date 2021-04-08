@@ -26,28 +26,35 @@ class StudentAuthController extends Controller
         return view('admin.student.student_list', compact('students'));
     }
 
-    public function _studentApproved()
+    public function _studentApproved($id)
     {
-        $token = 'edf639510950af557deeb0fed264379e';  /// token done
-        $domainname = 'http://192.168.1.157/moodle';
+//        $token = 'edf639510950af557deeb0fed264379e';  /// token done
+//        $domainname = 'http://192.168.1.157/moodle';
+//        $functionname = 'core_user_create_users';
+//        $restformat = 'xml';
+
+        $student = Student::findOrFail($id);
+
+        $token = '42cb9448afcb5a8187143060d1e847ef';  /// token done
+        $domainname = 'https://mtilms.com/moodle30';
         $functionname = 'core_user_create_users';
-        $restformat = 'xml';
+        $restformat = 'json';
 
         $user1 = new stdClass();
-        $user1->username = 'test123';
-        $user1->password = 'Admin@13323';
-        $user1->firstname = 'testfirstname1';
-        $user1->lastname = 'testlastname1';
-        $user1->email = 'testemail1111@moodle.com';
+        $user1->username = 'stu' . '' . $student->mobile;
+        $user1->password = 'Pass@' . '' . $student->mobile;
+        $user1->firstname = $student->student_name;
+        $user1->lastname = $student->student_name;
+        $user1->email = $student->email;
         $user1->auth = 'manual';
-        $user1->idnumber = 'testidnumber1';
+        $user1->idnumber = $id;
         $user1->lang = 'en';
         $user1->theme = '';
         $user1->timezone = 'Asia/Dhaka';
         $user1->mailformat = 0;
-        $user1->description = 'Hello World!';
-        $user1->city = 'testcity1';
-        $user1->country = 'au';
+        $user1->description = $student->course_name;
+        $user1->city = $student->district;
+        $user1->country = 'bd';
         $preferencename1 = 'preference1';
         $preferencename2 = 'preference2';
         $user1->preferences = array(
@@ -60,11 +67,16 @@ class StudentAuthController extends Controller
         $body['name'] = "Testing";
         $url = $domainname . '/webservice/rest/server.php' . '?wstoken=' . $token . '&wsfunction=' . $functionname;
         $response = $client->request("POST", $url, ['form_params' => $params]);
+
+        Student::findOrFail($id)->update(
+            ['status' => 2]
+        );
+
         return $response;
     }
 
 
-    public function _courseList()
+    public function _courseList($id)
     {
         $token = '1c3d808e11cb791efbfbd3c3d040a7ef';  /// token done
         $domainname = 'http://192.168.1.157/moodle';

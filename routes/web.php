@@ -48,7 +48,7 @@ Route::get('admin/coucat', [CourseCategoriesController::class, 'index'])->name('
 Route::post('admin/coucat', [CourseCategoriesController::class, '_courseCategoriesCreate'])->name('course.create_categories');
 Route::get('admin/categories-list', [CourseCategoriesController::class, '_courseCategoriesList'])->name('categories.list');
 Route::get('admin/student-list', [StudentAuthController::class, '_studentList'])->name('student.list');
-Route::get('admin/student-approved', [StudentAuthController::class, '_studentApproved'])->name('student.approved');
+Route::get('admin/student-approved/{id}', [StudentAuthController::class, '_studentApproved'])->name('student.approved');
 Route::get('admin/moodle-course', [StudentAuthController::class, '_courseList'])->name('moodle.course.list');
 
 //////////////// Course view public //////////////////////
